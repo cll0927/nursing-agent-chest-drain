@@ -1,0 +1,298 @@
+---
+name: chest-drain-position-safety
+description: Assess chest drainage system positioning and identify potential position-related safety risks. Use this skill when a nursing agent needs to evaluate patient position, chest tube position, drainage system height, tubing configuration, or possible mechanical safety problems.
+---
+
+# Chest Drain Position Safety
+
+## 1. Purpose
+
+This skill provides a structured workflow for identifying potential position-related safety risks associated with a chest drainage system.
+
+The skill is intended to help a nursing agent organize available clinical information, identify possible mechanical or positioning problems, and generate a structured safety reminder.
+
+The skill does not independently diagnose complications or prescribe clinical interventions.
+
+## 2. Scope
+
+Use this skill when the available information concerns one or more of the following:
+
+- Patient body position
+- Chest tube position
+- Drainage tubing position
+- Chest drainage collection system position
+- Relative height of the drainage system
+- Tubing kinking or compression
+- Tubing obstruction
+- Accidental disconnection
+- Changes in the patient's position
+- Changes in the drainage system after repositioning
+
+This skill is particularly relevant when a patient has changed position or when the chest drainage system may have been moved.
+
+## 3. Required Inputs
+
+The agent should collect and organize the following information when available.
+
+### Patient information
+
+- Current patient position
+- Recent change in patient position
+- Relevant clinical observations
+- Presence of new respiratory symptoms or deterioration
+
+### Chest drainage information
+
+- Presence of a chest tube
+- Location of the chest tube if documented
+- Drainage system currently connected
+- Position of the drainage collection system
+- Whether the drainage system is maintained according to the applicable clinical protocol
+
+### Tubing information
+
+- Tubing continuity
+- Presence of visible kinking
+- Presence of compression
+- Whether tubing is excessively dependent or positioned in a way that may impair drainage
+- Evidence of accidental disconnection
+
+### Reference information
+
+- Institutional protocol or prescribed configuration
+- Device-specific instructions
+- Any documented physician or nursing orders relevant to the drainage system
+
+If important information is unavailable, the agent should explicitly identify the missing information instead of assuming that the condition is normal.
+
+## 4. Safety Assessment Workflow
+
+Follow the steps below in order.
+
+### Step 1: Identify the clinical context
+
+Determine whether the patient currently has a chest drainage system.
+
+If no chest drainage system is present, this skill is not applicable.
+
+If the presence of a chest drainage system cannot be established, report that the information is insufficient.
+
+### Step 2: Assess patient position
+
+Identify the patient's current position.
+
+Examples include:
+
+- Supine
+- Semi-Fowler
+- Fowler
+- Sitting
+- Lateral position
+- Other documented position
+
+Determine whether the patient has recently been repositioned.
+
+If the patient has recently changed position, proceed to a focused reassessment of the drainage tubing and collection system.
+
+### Step 3: Assess drainage system positioning
+
+Check the documented position of the drainage collection system.
+
+Determine whether the system is positioned according to the applicable institutional protocol and device instructions.
+
+The agent should not assume a universal height or positioning rule when the relevant protocol has not been provided.
+
+If the system position is uncertain, identify this as requiring bedside verification.
+
+### Step 4: Assess tubing configuration
+
+Check for documented or observed:
+
+- Kinking
+- Compression
+- Occlusion
+- Excessive dependent loops
+- Disconnection
+- Displacement
+- Other mechanical abnormalities
+
+A potential mechanical problem should be flagged when the available information indicates that drainage may be impaired or system integrity may be compromised.
+
+### Step 5: Assess changes after repositioning
+
+If the patient has changed position:
+
+1. Reassess the chest tube and tubing configuration.
+2. Reassess the drainage system position.
+3. Check for new kinking, compression, or disconnection.
+4. Check whether the system remains configured according to the applicable protocol.
+5. Check for relevant changes in the patient's clinical condition.
+
+Do not assume that a previously safe configuration remains safe after patient repositioning.
+
+### Step 6: Assess clinical warning information
+
+Review available information for concerning changes, including:
+
+- New or worsening respiratory symptoms
+- Unexpected change in drainage
+- Sudden change in system function
+- New evidence suggesting mechanical obstruction
+- Accidental disconnection
+- Significant deterioration temporally associated with a device-position change
+
+The agent should treat these findings as reasons for prompt human clinical assessment rather than attempting to establish a diagnosis.
+
+## 5. Risk Classification
+
+Classify the result into one of four categories.
+
+### A. No identified position-related risk
+
+Use when:
+
+- Required information is available
+- No relevant positioning abnormality is identified
+- No relevant tubing problem is identified
+- No concerning clinical change is reported
+
+Output:
+
+`No position-related safety risk identified from the available information.`
+
+This does not mean that the patient has no clinical risk.
+
+### B. Potential position-related risk
+
+Use when there is a documented or suspected problem involving:
+
+- Drainage system positioning
+- Tubing configuration
+- Kinking
+- Compression
+- Dependent loops
+- Displacement
+- Other mechanical positioning concerns
+
+Output should identify the specific concern and state that bedside verification is required.
+
+### C. Urgent human verification required
+
+Use when information suggests a potentially significant device-related safety problem, such as:
+
+- Accidental disconnection
+- Significant displacement
+- Suspected major obstruction
+- Sudden concerning clinical change associated with the drainage system
+- Conflicting information about system configuration
+
+The agent should clearly state that qualified clinical personnel must assess the patient and device promptly.
+
+### D. Insufficient information
+
+Use when key information is unavailable.
+
+Examples:
+
+- Patient position unknown
+- Drainage system position unknown
+- Tubing configuration cannot be assessed
+- Device connection status unknown
+
+Do not infer missing information.
+
+## 6. Output Format
+
+Return the assessment in the following structure:
+
+### Chest Drain Position Safety Assessment
+
+**Patient position:**  
+[Documented position / Unknown]
+
+**Recent repositioning:**  
+[Yes / No / Unknown]
+
+**Drainage system position:**  
+[Documented status / Unknown]
+
+**Tubing configuration:**  
+[Normal from available information / Potential problem / Unknown]
+
+**System integrity:**  
+[Intact from available information / Potential disconnection or displacement / Unknown]
+
+**Clinical warning information:**  
+[None identified / Present / Unknown]
+
+**Risk classification:**  
+[No identified position-related risk / Potential position-related risk / Urgent human verification required / Insufficient information]
+
+**Reason:**  
+[Brief explanation based only on available information]
+
+**Human verification:**  
+[Not specifically indicated / Bedside verification recommended / Prompt clinical assessment required]
+
+## 7. Guardrails
+
+The agent must follow these rules.
+
+1. Do not diagnose pneumothorax, hemothorax, tension pneumothorax, pulmonary complications, or other diseases based only on device positioning information.
+
+2. Do not independently instruct the user to change the chest tube position.
+
+3. Do not independently instruct the user to clamp or unclamp the chest tube.
+
+4. Do not independently instruct the user to disconnect or reconnect the drainage system.
+
+5. Do not independently prescribe suction settings.
+
+6. Do not invent a drainage-system height when the applicable protocol or device instructions are unavailable.
+
+7. Do not treat the absence of documented abnormalities as proof that the system is clinically safe.
+
+8. If information is contradictory, report the contradiction and request human verification.
+
+9. When the patient's clinical condition is deteriorating, prioritize prompt clinical assessment rather than prolonged automated reasoning.
+
+10. Follow institutional protocols, device instructions, physician orders, and qualified nursing judgment.
+
+## 8. Human Oversight
+
+This skill is designed for human-AI collaboration.
+
+The agent's role is to:
+
+- Organize information
+- Identify potential safety concerns
+- Explain why a concern was flagged
+- Identify missing information
+- Prompt human verification
+
+The nurse or other qualified healthcare professional remains responsible for bedside assessment and clinical decisions.
+
+## 9. Example
+
+### Input
+
+Patient position: recently changed from supine to lateral position.
+
+Chest drainage system: connected.
+
+Tubing: visible sharp bend near the bed.
+
+Drainage system position: unclear.
+
+Clinical status: new respiratory discomfort reported.
+
+### Agent Output
+
+**Risk classification:**  
+Urgent human verification required.
+
+**Reason:**  
+The patient has recently changed position, and the tubing has a visible sharp bend. The drainage system position is also unclear. New respiratory discomfort is reported after the positional change.
+
+**Human verification:**  
+Prompt bedside assessment of the patient and chest drainage system is required. The agent does not determine the cause of the respiratory symptoms or independently recommend device manipulation.
